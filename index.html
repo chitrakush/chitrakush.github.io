@@ -1,37 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-mode="dark">
 <head>
+  <script>(function(){var d=window.matchMedia('(prefers-color-scheme: dark)').matches;var m=localStorage.getItem('mode')||(d?'dark':'light');document.documentElement.setAttribute('data-mode',m);}());</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chitra Kushwaha — Senior iOS Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     /* ── Reset & base ─────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:          #0a0a14;
-      --bg-card:     #13131f;
-      --bg-chip:     #1e1b35;
-      --accent:      #6042d6;
-      --accent-dim:  #3d2a8a;
-      --accent-glow: rgba(96,66,214,0.25);
-      --yellow:      #ffb226;
-      --text:        #e8e4f5;
-      --text-muted:  #9b97b0;
-      --border:      rgba(255,255,255,0.07);
-      --radius-sm:   8px;
-      --radius-md:   14px;
-      --radius-lg:   20px;
-      --radius-xl:   28px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-xl: 18px;
+    }
+
+    /* ── Apple Dark ───────────────────────────────────────── */
+    html[data-mode="dark"] {
+      --bg:            #000000;
+      --bg-card:       #1d1d1f;
+      --bg-chip:       #2a2a2c;
+      --accent:        #2997ff;
+      --accent-dim:    #0a2f5a;
+      --accent-hover:  #4facff;
+      --accent-glow:   rgba(41,151,255,0.2);
+      --accent-subtle: rgba(41,151,255,0.1);
+      --accent-border: rgba(41,151,255,0.25);
+      --yellow:        #ffd60a;
+      --text:          #f5f5f7;
+      --text-muted:    #86868b;
+      --border:        rgba(255,255,255,0.08);
+      --nav-bg:        rgba(0,0,0,0.8);
+    }
+
+    /* ── Apple Light ──────────────────────────────────────── */
+    html[data-mode="light"] {
+      --bg:            #f5f5f7;
+      --bg-card:       #ffffff;
+      --bg-chip:       #e8e8ed;
+      --accent:        #0066cc;
+      --accent-dim:    #cce0ff;
+      --accent-hover:  #0077ed;
+      --accent-glow:   rgba(0,102,204,0.15);
+      --accent-subtle: rgba(0,102,204,0.06);
+      --accent-border: rgba(0,102,204,0.2);
+      --yellow:        #b25000;
+      --text:          #1d1d1f;
+      --text-muted:    #6e6e73;
+      --border:        rgba(0,0,0,0.1);
+      --nav-bg:        rgba(245,245,247,0.85);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -39,6 +63,7 @@
     }
 
     a { color: inherit; text-decoration: none; }
+    a:visited { color: inherit; }
     img { display: block; max-width: 100%; }
 
     /* ── Layout ───────────────────────────────────────────── */
@@ -48,10 +73,10 @@
     section + section { border-top: 1px solid var(--border); }
 
     h2.section-title {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: 0.231px;
+      line-height: 1.19;
       color: var(--accent);
       margin-bottom: 40px;
     }
@@ -61,7 +86,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(10,10,20,0.85);
+      background: var(--nav-bg);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
@@ -79,7 +104,7 @@
 
     nav .brand {
       font-size: 15px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--text);
     }
 
@@ -112,21 +137,21 @@
       gap: 8px;
       font-size: 12px;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: -0.12px;
       text-transform: uppercase;
       color: var(--accent);
-      background: rgba(96,66,214,0.12);
-      border: 1px solid rgba(96,66,214,0.3);
+      background: var(--accent-subtle);
+      border: 1px solid var(--accent-border);
       border-radius: 100px;
       padding: 5px 14px;
       margin-bottom: 20px;
     }
 
     .hero-name {
-      font-size: clamp(38px, 6vw, 58px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
+      font-size: clamp(34px, 6vw, 56px);
+      font-weight: 600;
+      letter-spacing: -0.28px;
+      line-height: 1.07;
       margin-bottom: 16px;
     }
 
@@ -203,7 +228,7 @@
 
     .stat-card .number {
       font-size: 32px;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--accent);
       line-height: 1;
     }
@@ -218,35 +243,39 @@
     }
 
     /* ── Featured apps ────────────────────────────────────── */
-    .apps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-      gap: 24px;
+    .apps-slider-outer { position: relative; }
+
+    .apps-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      gap: 0;
+      border-radius: var(--radius-xl);
     }
 
+    .apps-slider::-webkit-scrollbar { display: none; }
+
     .app-card {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius-xl);
       overflow: hidden;
-      transition: border-color 0.25s, transform 0.25s;
-    }
-
-    .app-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
     }
 
     .app-card-header {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 24px 24px 20px;
+      gap: 20px;
+      padding: 28px 28px 24px;
+      border-bottom: 1px solid var(--border);
     }
 
     .app-icon {
-      width: 68px;
-      height: 68px;
+      width: 72px;
+      height: 72px;
       border-radius: 16px;
       object-fit: cover;
       flex-shrink: 0;
@@ -256,70 +285,43 @@
     .app-meta { flex: 1; min-width: 0; }
 
     .app-name {
-      font-size: 17px;
-      font-weight: 700;
+      font-size: 20px;
+      font-weight: 600;
       margin-bottom: 4px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     .app-company {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--text-muted);
-      font-weight: 500;
+      font-weight: 400;
+      margin-bottom: 6px;
     }
 
     .app-rating {
       display: flex;
       align-items: center;
-      gap: 4px;
-      font-size: 12px;
+      gap: 5px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--yellow);
-      margin-top: 6px;
     }
 
-    .app-screenshots {
-      display: flex;
-      gap: 10px;
-      padding: 0 24px 20px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    .app-screenshots::-webkit-scrollbar { display: none; }
-
-    .screenshot-frame {
-      flex-shrink: 0;
-      width: 90px;
-      height: 160px;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 2px solid var(--border);
-      background: var(--bg-chip);
-    }
-
-    .screenshot-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .app-body { display: block; }
 
     .app-bullets {
-      padding: 0 24px 20px;
+      padding: 24px 28px 20px;
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .app-bullets li {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text-muted);
       display: flex;
       gap: 10px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .app-bullets li::before {
@@ -329,19 +331,43 @@
       font-weight: 600;
     }
 
+    .app-screenshots-row {
+      display: flex;
+      gap: 10px;
+      padding: 0 28px 20px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .app-screenshots-row::-webkit-scrollbar { display: none; }
+
+    .screenshot-frame {
+      flex-shrink: 0;
+      width: 76px;
+      height: 135px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      background: var(--bg-chip);
+    }
+
+    .screenshot-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .app-footer {
-      padding: 16px 24px;
+      padding: 18px 28px;
       border-top: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
-    .app-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
+    .app-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 
     .tag {
       font-size: 11px;
@@ -358,16 +384,73 @@
       align-items: center;
       gap: 7px;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 600;
       color: #fff;
       background: var(--accent);
       border-radius: 100px;
-      padding: 7px 16px;
+      padding: 8px 18px;
       flex-shrink: 0;
       transition: background 0.2s;
     }
 
-    .appstore-btn:hover { background: #7b6fd4; }
+    .appstore-btn:hover { background: var(--accent-hover); }
+
+    .app-ctas { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+
+    .app-also-links {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .app-also-links a { color: var(--accent); font-weight: 600; transition: opacity 0.2s; }
+    .app-also-links a:hover { opacity: 0.7; }
+
+    .slider-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .slider-arrow {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-chip);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .slider-arrow:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-subtle);
+    }
+
+    .slider-dots { display: flex; gap: 8px; align-items: center; }
+
+    .slider-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 4px;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.25s, width 0.25s;
+    }
+
+    .slider-dot.active { width: 20px; background: var(--accent); }
 
     /* ── Experience ───────────────────────────────────────── */
     .timeline { display: flex; flex-direction: column; gap: 0; }
@@ -428,7 +511,7 @@
 
     .exp-company {
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 600;
       margin-bottom: 2px;
     }
 
@@ -490,7 +573,7 @@
 
     .skill-tag {
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 400;
       background: var(--bg-chip);
       color: var(--text);
       border: 1px solid var(--border);
@@ -499,7 +582,7 @@
       transition: border-color 0.2s, background 0.2s;
     }
 
-    .skill-tag:hover { border-color: var(--accent); background: rgba(96,66,214,0.1); }
+    .skill-tag:hover { border-color: var(--accent); background: var(--accent-subtle); }
 
     /* ── Education ────────────────────────────────────────── */
     .edu-card {
@@ -516,7 +599,7 @@
     .edu-icon {
       width: 52px;
       height: 52px;
-      background: rgba(96,66,214,0.15);
+      background: var(--accent-subtle);
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
@@ -525,7 +608,7 @@
       font-size: 24px;
     }
 
-    .edu-degree { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .edu-degree { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
     .edu-uni { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
     .edu-year { font-size: 12px; color: var(--text-muted); }
 
@@ -558,6 +641,138 @@
       opacity: 0.5;
     }
 
+    /* ── Projects ─────────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 24px;
+    }
+
+    .proj-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .proj-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .proj-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .proj-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    .proj-icon-placeholder {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--bg-chip);
+      border: 1px solid var(--border);
+    }
+
+    .proj-name {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .proj-domain {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .proj-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .proj-links { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .proj-store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 100px;
+      padding: 6px 14px;
+      flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .proj-store-btn:hover { background: var(--accent-hover); }
+
+    .proj-store-btn--ghost {
+      background: var(--bg-chip);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .proj-store-btn--ghost:hover {
+      background: var(--accent-subtle);
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    /* ── Theme switcher ───────────────────────────────────── */
+    .theme-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mode-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-chip);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .mode-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    html[data-mode="dark"]   .icon-moon { display: none; }
+    html[data-mode="dark"]   .icon-sun  { display: block; }
+    html[data-mode="light"]  .icon-sun  { display: none; }
+    html[data-mode="light"]  .icon-moon { display: block; }
+
     /* ── Responsive ───────────────────────────────────────── */
     @media (max-width: 640px) {
       section { padding: 56px 0; }
@@ -568,7 +783,10 @@
       .timeline-left { text-align: left; margin-bottom: 8px; }
       .timeline-right::before, .timeline-right::after { display: none; }
       .timeline-right { padding-left: 0; }
-      .apps-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .app-body--split { grid-template-columns: 1fr; }
+      .app-body--split .app-bullets { border-right: none; border-bottom: 1px solid var(--border); }
+      .app-screenshots-col { flex-direction: row; padding: 16px 20px; gap: 8px; justify-content: flex-start; overflow-x: auto; }
       nav .links { display: none; }
     }
   </style>
@@ -579,11 +797,20 @@
   <nav>
     <div class="inner">
       <span class="brand">Chitra Kushwaha</span>
-      <div class="links">
-        <a href="#about">About</a>
-        <a href="#apps">Apps</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
+      <div style="display:flex;align-items:center;gap:20px;">
+        <div class="links">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#apps">Apps</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+        </div>
+        <div class="theme-controls">
+          <button class="mode-btn" id="modeBtn" title="Toggle dark / light">
+            <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </div>
       </div>
     </div>
   </nav>
@@ -593,12 +820,8 @@
     <div class="container">
       <div class="hero-grid">
         <div>
-          <div class="hero-eyebrow">
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="#6042d6"/><circle cx="5" cy="5" r="2" fill="#fff"/></svg>
-            Available for new roles
-          </div>
           <h1 class="hero-name">Chitra<br><span>Kushwaha</span></h1>
-          <p class="hero-sub">Senior iOS Developer · 7+ years crafting high-performance apps across OTT, real estate, ride-hailing &amp; on-demand domains.</p>
+          <p class="hero-sub">Senior iOS Developer · 7+ years crafting high-performance apps across OTT, real estate, ride-hailing, on-demand service domains.</p>
           <div class="hero-contacts">
             <a href="mailto:chitrakush804@gmail.com" class="contact-btn">
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
@@ -614,7 +837,7 @@
             </a>
           </div>
         </div>
-        <div class="hero-avatar">CK</div>
+        <div class="hero-avatar"><img src="photo.jpg" alt="Chitra Kushwaha" style="width:100%;height:100%;object-fit:cover;" /></div>
       </div>
     </div>
   </section>
@@ -623,100 +846,12 @@
   <section id="about">
     <div class="container">
       <h2 class="section-title">About</h2>
-      <p class="about-text">Senior iOS Developer with 7+ years of experience building and optimising high-performance apps across OTT, real estate, ride-hailing, on-demand services, and order tracking domains. Skilled in Swift, SwiftUI, UIKit, performance optimisation, scalability, and end-to-end mobile app development — from architecture to App Store release.</p>
+      <p class="about-text">Senior iOS Developer with 7+ years of experience building and optimising high-performance apps across OTT, real estate, ride-hailing, on-demand services, and order tracking domains. Skilled in Swift, SwiftUI, UIKit, Reactive programming, performance optimisation, scalability, and end-to-end mobile app development.</p>
       <div class="about-stats">
         <div class="stat-card"><div class="number">7+</div><div class="label">Years Experience</div></div>
         <div class="stat-card"><div class="number">6</div><div class="label">Companies</div></div>
         <div class="stat-card"><div class="number">10+</div><div class="label">Apps Shipped</div></div>
-        <div class="stat-card"><div class="number">2</div><div class="label">Live App Store Apps</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Apps -->
-  <section id="apps">
-    <div class="container">
-      <h2 class="section-title">Featured Apps</h2>
-      <div class="apps-grid">
-
-        <!-- Realestate.com.au -->
-        <div class="app-card">
-          <div class="app-card-header">
-            <img class="app-icon"
-              src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c8/f8/8a/c8f88aab-5ba8-8d8b-6472-756244ec7887/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg"
-              alt="realestate.com.au icon" />
-            <div class="app-meta">
-              <div class="app-name">realestate.com.au</div>
-              <div class="app-company">REA Group · Real Estate</div>
-              <div class="app-rating">
-                ★★★★★ <span style="color:var(--text-muted);font-weight:400">4.8 · 287K ratings</span>
-              </div>
-            </div>
-          </div>
-          <div class="app-screenshots">
-            <div class="screenshot-frame">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/1f/ca/9c/1fca9c5e-ec92-43fe-d8ca-4935d4587d4f/iPhone-5.5_-A.jpg/392x696bb.jpg" alt="Screenshot 1" loading="lazy" />
-            </div>
-            <div class="screenshot-frame">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7f/d9/5a/7fd95ab5-3de8-e273-4b70-959564628598/iPhone-5.5_-B.jpg/392x696bb.jpg" alt="Screenshot 2" loading="lazy" />
-            </div>
-            <div class="screenshot-frame">
-              <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/5d/27/80/5d2780ae-c4a7-ad82-54cb-e24e59df29b6/iPhone-5.5_-C.jpg/392x696bb.jpg" alt="Screenshot 3" loading="lazy" />
-            </div>
-          </div>
-          <ul class="app-bullets">
-            <li>Built property data components in SwiftUI with MVI-Reducer pattern</li>
-            <li>Migrated monolith to Micro-Frontend (MFE) architecture for better scalability</li>
-            <li>Integrated GraphQL (Apollo) for reactive UI updates with Optimizely feature flags</li>
-          </ul>
-          <div class="app-footer">
-            <div class="app-tags">
-              <span class="tag">SwiftUI</span>
-              <span class="tag">MVI</span>
-              <span class="tag">GraphQL</span>
-              <span class="tag">MFE</span>
-            </div>
-            <a class="appstore-btn" href="https://apps.apple.com/au/app/realestate-com-au-property/id404667893" target="_blank">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-              App Store
-            </a>
-          </div>
-        </div>
-
-        <!-- CHSN -->
-        <div class="app-card">
-          <div class="app-card-header">
-            <img class="app-icon"
-              src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1f/d9/79/1fd979c9-006b-9cc6-1fb7-1b63c9782faf/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg"
-              alt="CHSN icon" />
-            <div class="app-meta">
-              <div class="app-name">CHSN — Chicago Sports Network</div>
-              <div class="app-company">Nexgen IOT Solutions · OTT / Sports</div>
-              <div class="app-rating">
-                ★★★★☆ <span style="color:var(--text-muted);font-weight:400">4.3 · 2.7K ratings</span>
-              </div>
-            </div>
-          </div>
-          <ul class="app-bullets" style="padding-top:12px;">
-            <li>Built TikTok-style vertical video tray using MVVM, boosting engagement metrics</li>
-            <li>Optimised video playback init time for smoother live-streaming performance</li>
-            <li>Implemented CMS-driven Channel &amp; Team module via GraphQL (Apollo) runtime rendering</li>
-            <li>Built reusable subscription plan access module, eliminating redundant code across features</li>
-          </ul>
-          <div class="app-footer">
-            <div class="app-tags">
-              <span class="tag">MVVM</span>
-              <span class="tag">AVFoundation</span>
-              <span class="tag">GraphQL</span>
-              <span class="tag">StoreKit</span>
-            </div>
-            <a class="appstore-btn" href="https://apps.apple.com/us/app/chsn/id6705122525" target="_blank">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-              App Store
-            </a>
-          </div>
-        </div>
-
+        <div class="stat-card"><div class="number">5</div><div class="label">Live App Store Apps</div></div>
       </div>
     </div>
   </section>
@@ -830,6 +965,404 @@
     </div>
   </section>
 
+  <!-- Featured Apps -->
+  <section id="apps">
+    <div class="container">
+      <h2 class="section-title">Featured Apps</h2>
+      <div class="apps-slider-outer">
+        <div class="apps-slider" id="appsSlider">
+
+          <!-- realestate.com.au -->
+          <div class="app-card">
+            <div class="app-card-header">
+              <img class="app-icon"
+                src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c8/f8/8a/c8f88aab-5ba8-8d8b-6472-756244ec7887/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg"
+                alt="realestate.com.au icon" />
+              <div class="app-meta">
+                <div class="app-name">realestate.com.au</div>
+                <div class="app-company">REA Group · Real Estate</div>
+                <div class="app-rating">
+                  ★★★★★ <span style="color:var(--text-muted);font-weight:400">4.8 · 287K ratings</span>
+                </div>
+              </div>
+            </div>
+            <div class="app-body">
+              <ul class="app-bullets">
+                <li>Built property data components in SwiftUI with MVI-Reducer pattern</li>
+                <li>Migrated monolith to Micro-Frontend (MFE) architecture for better scalability</li>
+                <li>Integrated GraphQL (Apollo) for reactive UI updates with Optimizely feature flags</li>
+                <li>Led Unit/UI testing, code reviews, and safe incremental rollouts</li>
+              </ul>
+            </div>
+            <div class="app-screenshots-row">
+              <div class="screenshot-frame"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/1f/ca/9c/1fca9c5e-ec92-43fe-d8ca-4935d4587d4f/iPhone-5.5_-A.jpg/392x696bb.jpg" alt="Screenshot 1" loading="lazy" /></div>
+              <div class="screenshot-frame"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/7f/d9/5a/7fd95ab5-3de8-e273-4b70-959564628598/iPhone-5.5_-B.jpg/392x696bb.jpg" alt="Screenshot 2" loading="lazy" /></div>
+              <div class="screenshot-frame"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/5d/27/80/5d2780ae-c4a7-ad82-54cb-e24e59df29b6/iPhone-5.5_-C.jpg/392x696bb.jpg" alt="Screenshot 3" loading="lazy" /></div>
+            </div>
+            <div class="app-footer">
+              <div class="app-tags">
+                <span class="tag">SwiftUI</span>
+                <span class="tag">MVI</span>
+                <span class="tag">GraphQL</span>
+                <span class="tag">MFE</span>
+              </div>
+              <a class="appstore-btn" href="https://apps.apple.com/au/app/realestate-com-au-property/id404667893" target="_blank">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                App Store
+              </a>
+            </div>
+          </div>
+
+          <!-- CHSN -->
+          <div class="app-card">
+            <div class="app-card-header">
+              <img class="app-icon"
+                src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1f/d9/79/1fd979c9-006b-9cc6-1fb7-1b63c9782faf/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg"
+                alt="CHSN icon" />
+              <div class="app-meta">
+                <div class="app-name">CHSN — Chicago Sports Network</div>
+                <div class="app-company">Nexgen IOT Solutions · OTT / Sports</div>
+                <div class="app-rating">
+                  ★★★★☆ <span style="color:var(--text-muted);font-weight:400">4.3 · 2.7K ratings</span>
+                </div>
+              </div>
+            </div>
+            <div class="app-body">
+              <ul class="app-bullets">
+                <li>Built TikTok-style vertical video tray using MVVM, boosting engagement metrics</li>
+                <li>Optimised video playback time for smoother live-streaming performance</li>
+                <li>Implemented CMS-driven Channel &amp; Team module via GraphQL (Apollo) runtime rendering</li>
+                <li>Built reusable subscription plan access module, eliminating redundant code across features</li>
+              </ul>
+            </div>
+            <div class="app-screenshots-row">
+              <div class="screenshot-frame"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/55/7c/74/557c74ab-a301-f3af-0518-5822a09020a8/Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2024-11-12_at_17.43.32.png/392x696bb.jpg" alt="Screenshot 1" loading="lazy" /></div>
+              <div class="screenshot-frame"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ba/20/69/ba206957-1eeb-3c94-3e26-bd376b3f73ad/Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2024-11-12_at_17.46.07.png/392x696bb.jpg" alt="Screenshot 2" loading="lazy" /></div>
+              <div class="screenshot-frame"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/90/cf/7f/90cf7f81-958d-255c-f739-2be14fe80864/Simulator_Screenshot_-_iPhone_15_Pro_Max_-_2024-11-12_at_17.46.17.png/392x696bb.jpg" alt="Screenshot 3" loading="lazy" /></div>
+            </div>
+            <div class="app-footer">
+              <div class="app-tags">
+                <span class="tag">MVVM</span>
+                <span class="tag">AVFoundation</span>
+                <span class="tag">GraphQL</span>
+                <span class="tag">StoreKit</span>
+              </div>
+              <a class="appstore-btn" href="https://apps.apple.com/us/app/chsn/id6705122525" target="_blank">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                App Store
+              </a>
+            </div>
+          </div>
+
+          <!-- LaundryPickup -->
+          <div class="app-card">
+            <div class="app-card-header">
+              <img class="app-icon"
+                src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/39/f0/18/39f01840-da06-c67b-6a59-0dd779599647/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"
+                alt="LaundryPickup icon" />
+              <div class="app-meta">
+                <div class="app-name">LaundryPickup</div>
+                <div class="app-company">LPS LLC · On-Demand / Laundry</div>
+                <div class="app-rating">
+                  ★★★★★ <span style="color:var(--text-muted);font-weight:400">5.0 · 3 apps shipped</span>
+                </div>
+              </div>
+            </div>
+            <div class="app-body">
+              <ul class="app-bullets">
+                <li>Built 3-sided platform — user, driver, and provider apps end-to-end</li>
+                <li>Real-time order tracking with MapKit and live location updates</li>
+                <li>Stripe payment integration with pickup scheduling and delivery flow</li>
+              </ul>
+            </div>
+            <div class="app-screenshots-row">
+              <div class="screenshot-frame"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ca/56/ea/ca56ea93-6acc-7433-c97c-4fffc6467391/4a785fa7-7711-4f46-93d9-8cc14a080379_1.jpg/392x696bb.jpg" alt="Screenshot 1" loading="lazy" /></div>
+              <div class="screenshot-frame"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/95/b9/50/95b95024-7570-10be-30d0-28f9a69fe227/85a27d02-d69f-42b1-9113-f5abed037c9b_2.jpg/392x696bb.jpg" alt="Screenshot 2" loading="lazy" /></div>
+              <div class="screenshot-frame"><img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/20/13/18/2013183d-dbfb-59e8-7aaa-851cc33532fc/9c3c358a-f233-4170-803d-36dc41356dba_3.jpg/392x696bb.jpg" alt="Screenshot 3" loading="lazy" /></div>
+            </div>
+            <div class="app-footer">
+              <div class="app-tags">
+                <span class="tag">UIKit</span>
+                <span class="tag">MVVM</span>
+                <span class="tag">MapKit</span>
+                <span class="tag">Stripe</span>
+                <span class="tag">Firebase</span>
+              </div>
+              <div class="app-ctas">
+                <a class="appstore-btn" href="https://apps.apple.com/us/app/laundrypickup-com/id1604299357" target="_blank">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                  User App
+                </a>
+                <div class="app-also-links">
+                  Also: <a href="https://apps.apple.com/us/app/laundrypickup-driver/id1604300663" target="_blank">Driver</a> · <a href="https://apps.apple.com/us/app/laundrypickup-provider/id1604300990" target="_blank">Provider</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="slider-nav">
+          <button class="slider-arrow" id="appsPrev" aria-label="Previous">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15,18 9,12 15,6"/></svg>
+          </button>
+          <div class="slider-dots" id="appsDots">
+            <button class="slider-dot active"></button>
+            <button class="slider-dot"></button>
+            <button class="slider-dot"></button>
+          </div>
+          <button class="slider-arrow" id="appsNext" aria-label="Next">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9,18 15,12 9,6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+
+        <!-- 1. CHSN -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <img class="proj-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1f/d9/79/1fd979c9-006b-9cc6-1fb7-1b63c9782faf/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg" alt="CHSN" />
+            <div>
+              <div class="proj-name">CHSN — White Label OTT</div>
+              <div class="proj-domain">OTT / Streaming</div>
+            </div>
+          </div>
+          <p class="proj-desc">CMS-driven white-label OTT app. UI and configuration managed entirely from a web CMS without touching the codebase — vertical video player (TikTok-style), subscriptions, and full-screen streaming.</p>
+          <div class="proj-tags">
+            <span class="tag">SwiftUI</span><span class="tag">MVVM</span><span class="tag">Apollo/GraphQL</span><span class="tag">AVFoundation</span><span class="tag">StoreKit</span>
+          </div>
+          <div class="proj-links">
+            <a class="proj-store-btn" href="https://apps.apple.com/us/app/chsn/id6705122525" target="_blank">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              App Store
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Dormhub -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <div class="proj-icon-placeholder">D</div>
+            <div>
+              <div class="proj-name">Dormhub</div>
+              <div class="proj-domain">Social Networking</div>
+            </div>
+          </div>
+          <p class="proj-desc">Instagram-like social platform — posts, stories with highlights, one-to-one &amp; group chat, communities, follow/unfollow, friend requests, and full media editing pipeline.</p>
+          <div class="proj-tags">
+            <span class="tag">Swift</span><span class="tag">MVVM</span><span class="tag">Alamofire</span><span class="tag">AVFoundation</span><span class="tag">Firebase</span>
+          </div>
+          <div class="proj-links"></div>
+        </div>
+
+        <!-- 3. ShepherdCares -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <img class="proj-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/28/c7/6828c715-224f-7841-41d6-46812809206d/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg" alt="ShepherdCares" />
+            <div>
+              <div class="proj-name">ShepherdCares</div>
+              <div class="proj-domain">Healthcare</div>
+            </div>
+          </div>
+          <p class="proj-desc">Expert caregiving guidance platform — organises caregiving communication, activities, documents &amp; resources. Features HealthKit integration, FaceID login, and in-app subscriptions.</p>
+          <div class="proj-tags">
+            <span class="tag">Swift</span><span class="tag">MVVM</span><span class="tag">HealthKit</span><span class="tag">Firebase</span><span class="tag">StoreKit</span>
+          </div>
+          <div class="proj-links">
+            <a class="proj-store-btn" href="https://apps.apple.com/us/app/shepherd-cares/id1638342838" target="_blank">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              App Store
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. LaundryPickup -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <img class="proj-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/39/f0/18/39f01840-da06-c67b-6a59-0dd779599647/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="LaundryPickup" />
+            <div>
+              <div class="proj-name">LaundryPickup</div>
+              <div class="proj-domain">On-Demand Services</div>
+            </div>
+          </div>
+          <p class="proj-desc">3-sided laundry platform — user app for scheduling pickups, driver app for deliveries, and provider app for service management. Real-time order tracking and Stripe payments.</p>
+          <div class="proj-tags">
+            <span class="tag">UIKit</span><span class="tag">MVVM</span><span class="tag">MapKit</span><span class="tag">Stripe</span><span class="tag">Firebase</span>
+          </div>
+          <div class="proj-links">
+            <a class="proj-store-btn" href="https://apps.apple.com/us/app/laundrypickup-com/id1604299357" target="_blank">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              User App
+            </a>
+            <a class="proj-store-btn proj-store-btn--ghost" href="https://apps.apple.com/us/app/laundrypickup-driver/id1604300663" target="_blank">Driver App</a>
+            <a class="proj-store-btn proj-store-btn--ghost" href="https://apps.apple.com/us/app/laundrypickup-provider/id1604300990" target="_blank">Provider App</a>
+          </div>
+        </div>
+
+        <!-- 5. My Proper Home -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <div class="proj-icon-placeholder">M</div>
+            <div>
+              <div class="proj-name">My Proper Home</div>
+              <div class="proj-domain">Real Estate</div>
+            </div>
+          </div>
+          <p class="proj-desc">AWS Amplify-powered property platform — buy/sell listings, property chain management, and multi-role business users (solicitor, agent, broker). Fully serverless architecture.</p>
+          <div class="proj-tags">
+            <span class="tag">Swift</span><span class="tag">MVVM</span><span class="tag">AWS Amplify</span><span class="tag">GraphQL</span>
+          </div>
+          <div class="proj-links">
+            <a class="proj-store-btn" href="https://apps.apple.com/us/app/my-proper-home/id6450981291" target="_blank">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              App Store
+            </a>
+          </div>
+        </div>
+
+        <!-- 6. Rolling Meadows -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <img class="proj-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e2/34/aa/e234aa4c-5311-ad11-8392-342b178ebddc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Rolling Meadows" />
+            <div>
+              <div class="proj-name">Rolling Meadows</div>
+              <div class="proj-domain">Healthcare / Community</div>
+            </div>
+          </div>
+          <p class="proj-desc">Patient &amp; family communication app for Rolling Meadows Retirement Community — events calendar, activity updates, push notifications, and secure session management.</p>
+          <div class="proj-tags">
+            <span class="tag">Swift</span><span class="tag">MVC</span><span class="tag">REST APIs</span><span class="tag">Push Notifications</span>
+          </div>
+          <div class="proj-links">
+            <a class="proj-store-btn" href="https://apps.apple.com/us/app/rolling-meadows-application/id1664659930" target="_blank">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              App Store
+            </a>
+          </div>
+        </div>
+
+        <!-- 7. Hub Business -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <div class="proj-icon-placeholder">H</div>
+            <div>
+              <div class="proj-name">Hub Business</div>
+              <div class="proj-domain">Networking / Startup</div>
+            </div>
+          </div>
+          <p class="proj-desc">Platform connecting startups, investors, and organisations — location-based discovery on map, real-time Firebase chat, and deal-closing workflow.</p>
+          <div class="proj-tags">
+            <span class="tag">UIKit</span><span class="tag">MVVM</span><span class="tag">MapKit</span><span class="tag">Firebase</span>
+          </div>
+          <div class="proj-links">
+            <a class="proj-store-btn" href="https://apps.apple.com/us/app/hubbusiness/id1549729045" target="_blank">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              App Store
+            </a>
+          </div>
+        </div>
+
+        <!-- 8. Smarttask -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <div class="proj-icon-placeholder">S</div>
+            <div>
+              <div class="proj-name">Smarttask</div>
+              <div class="proj-domain">On-Demand / Home Services</div>
+            </div>
+          </div>
+          <p class="proj-desc">Two-sided on-demand household services platform — customer app for ordering and a tasker app for location-based job management, with real-time chat and sockets.</p>
+          <div class="proj-tags">
+            <span class="tag">Swift</span><span class="tag">MVVM</span><span class="tag">Sockets</span><span class="tag">CoreLocation</span><span class="tag">Firebase</span>
+          </div>
+          <div class="proj-links">
+            <a class="proj-store-btn" href="https://apps.apple.com/in/app/smarttask-by-charles/id1543924569" target="_blank">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              Customer App
+            </a>
+            <a class="proj-store-btn proj-store-btn--ghost" href="https://apps.apple.com/in/app/smarttask-tasker/id1543926475" target="_blank">Tasker App</a>
+          </div>
+        </div>
+
+        <!-- 9. BrainPickers -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <div class="proj-icon-placeholder">B</div>
+            <div>
+              <div class="proj-name">BrainPickers</div>
+              <div class="proj-domain">Education</div>
+            </div>
+          </div>
+          <p class="proj-desc">Student-tutor matching platform — upload assignments, get expert help, real-time chat with document sharing, Agora video calling, and subscription plans via In-App Purchase. Sole developer.</p>
+          <div class="proj-tags">
+            <span class="tag">UIKit</span><span class="tag">MVC</span><span class="tag">Agora</span><span class="tag">Firebase</span><span class="tag">CallKit</span><span class="tag">StoreKit</span>
+          </div>
+          <div class="proj-links"></div>
+        </div>
+
+        <!-- 10. Rons Taxi -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <div class="proj-icon-placeholder">R</div>
+            <div>
+              <div class="proj-name">Rons Taxi</div>
+              <div class="proj-domain">Ride-Hailing</div>
+            </div>
+          </div>
+          <p class="proj-desc">Uber/Ola-style ride booking — real-time live location tracking, nearby driver search, ride scheduling, Stripe payments, booking history, WebSocket ride status updates.</p>
+          <div class="proj-tags">
+            <span class="tag">UIKit</span><span class="tag">MVVM</span><span class="tag">MapKit</span><span class="tag">Sockets</span><span class="tag">Stripe</span><span class="tag">CoreLocation</span>
+          </div>
+          <div class="proj-links"></div>
+        </div>
+
+        <!-- 11. Rattle App -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <div class="proj-icon-placeholder">R</div>
+            <div>
+              <div class="proj-name">Rattle</div>
+              <div class="proj-domain">Social / Audio</div>
+            </div>
+          </div>
+          <p class="proj-desc">Serverless Firebase audio social app — post audio stories, one-to-one &amp; group audio chat, public/private groups, speech recognition, and follow-based discovery. Fully Firebase-powered.</p>
+          <div class="proj-tags">
+            <span class="tag">Swift</span><span class="tag">MVC</span><span class="tag">Firebase</span><span class="tag">AVPlayer</span><span class="tag">Speech Recognition</span>
+          </div>
+          <div class="proj-links"></div>
+        </div>
+
+        <!-- 12. Keepook -->
+        <div class="proj-card">
+          <div class="proj-header">
+            <div class="proj-icon-placeholder">K</div>
+            <div>
+              <div class="proj-name">Keepook</div>
+              <div class="proj-domain">Productivity</div>
+            </div>
+          </div>
+          <p class="proj-desc">Public promise &amp; resolution tracking app — user-to-user and group promise model with trust scores, AtCash wallet, one-to-one/group video calls, donation causes, and graphical score dashboards.</p>
+          <div class="proj-tags">
+            <span class="tag">UIKit</span><span class="tag">MVC</span><span class="tag">Alamofire</span><span class="tag">Push Notifications</span><span class="tag">In-App Purchase</span>
+          </div>
+          <div class="proj-links">
+            <a class="proj-store-btn" href="https://apps.apple.com/us/app/keepook/id1481701695" target="_blank">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              App Store
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Skills -->
   <section id="skills">
     <div class="container">
@@ -931,8 +1464,8 @@
         <div class="edu-icon">🎓</div>
         <div>
           <div class="edu-degree">Bachelor in Computer Applications (BCA)</div>
-          <div class="edu-uni">Panjab University</div>
-          <div class="edu-year">July 2013 – June 2016 · Chandigarh</div>
+          <div class="edu-uni">Panjab University, Chandigarh</div>
+          <div class="edu-year">2013 – 2016</div>
         </div>
       </div>
     </div>
@@ -950,5 +1483,43 @@
     </div>
   </footer>
 
+  <script>
+    document.getElementById('modeBtn').addEventListener('click', function () {
+      var m = document.documentElement.getAttribute('data-mode') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-mode', m);
+      localStorage.setItem('mode', m);
+    });
+
+    (function () {
+      var slider = document.getElementById('appsSlider');
+      var dots = document.querySelectorAll('#appsDots .slider-dot');
+      var prev = document.getElementById('appsPrev');
+      var next = document.getElementById('appsNext');
+      var total = dots.length;
+      var current = 0;
+
+      function goTo(index) {
+        current = Math.max(0, Math.min(total - 1, index));
+        slider.scrollTo({ left: current * slider.offsetWidth, behavior: 'smooth' });
+        dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+      }
+
+      prev.addEventListener('click', function () { goTo(current - 1); });
+      next.addEventListener('click', function () { goTo(current + 1); });
+      dots.forEach(function (d, i) { d.addEventListener('click', function () { goTo(i); }); });
+
+      var scrollTimer;
+      slider.addEventListener('scroll', function () {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(function () {
+          var idx = Math.round(slider.scrollLeft / slider.offsetWidth);
+          if (idx !== current) {
+            current = idx;
+            dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+          }
+        }, 50);
+      });
+    })();
+  </script>
 </body>
 </html>
